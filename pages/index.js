@@ -1,7 +1,10 @@
-import Head from 'next/head'
+import Navbar from '../components/navbar/navbar'
 
 export default function Home() {
   return (
-    <div>assdf</div>
+    <>
+      <Navbar/>
+      <h1>Kios Software</h1>
+    </>
   )
 }

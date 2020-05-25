@@ -1,20 +1,9 @@
 import {createStore} from 'redux';
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
-
-// create your reducer
-const reducer = (state = {tick: 'init'}, action) => {
-    switch (action.type) {
-        case HYDRATE:
-            return {...state, ...action.payload};
-        case 'TICK':
-            return {...state, tick: action.payload};
-        default:
-            return state;
-    }
-};
+import {createWrapper} from 'next-redux-wrapper';
+import rootReducer from './state/reducers/index'
 
 // create a makeStore function
-const makeStore = context => createStore(reducer);
+const makeStore = context => createStore(rootReducer);
 
 // export an assembled wrapper
 export const wrapper = createWrapper(makeStore, {debug: true});
