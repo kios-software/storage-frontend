@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
 export default function StorageCard(props) { 
     const classes = useStyles()
     return (
-        <Card className={classes.root}>
+        <Card
+            className={classes.root}
+            {...props}>
             <CardMedia
                 className={classes.media}
                 image="images/box.jpg"
