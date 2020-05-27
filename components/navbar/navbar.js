@@ -33,7 +33,7 @@ function Navbar(props) {
                 elevation={0}
                 color="primary">
                 <Toolbar>
-                    <Typography edge="start" className={classes.titleFlex} color="inherit">
+                    <Typography edge="start" className={classes.titleFlex}>
                         Storage
                     </Typography>
                     <NavbarProfileIcon/>
