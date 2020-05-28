@@ -26,7 +26,14 @@ function NavbarProfileIcon(props){
     return props.auth.authenticated?(
         <div></div>
     ):(
-        <><Button variant="text">Login</Button> <Button variant="outlined">Sign up</Button></>
+        <> 
+            <Button color="inherit" variant="text">
+                Login
+            </Button>
+            <Button color="inherit" variant="outlined">
+                Sign up
+            </Button>
+        </>
     )
 }
 

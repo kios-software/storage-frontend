@@ -7,6 +7,9 @@ const useStyles = makeStyles({
     root: {
         flexGrow: 1
     },
+    appbar: {
+        alignItems: 'center'
+    },
     titleFlex: {
         flexGrow: 1
     }
@@ -24,6 +27,8 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+// Flex items can be centered horizontally using 
+//  the justify-content or align-self CSS Property or more other ones.
 function Navbar(props) {
     const classes = useStyles();
     return (
@@ -31,11 +36,14 @@ function Navbar(props) {
             <AppBar
                 position="static"
                 elevation={0}
+                className={classes.appBar}
                 color="primary">
-                <Toolbar>
-                    <Typography edge="start" className={classes.titleFlex}>
+                <Toolbar align="center">
+                    <Typography
+                        align="center">
                         Storage
                     </Typography>
+                    <div style={{ flexGrow: 1 }}/>
                     <NavbarProfileIcon/>
                 </Toolbar>
             </AppBar>
