@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Button, makeStyles } from '@material-ui/core'
+import { setAuthenticated } from '../../state/actions/auth-actions'
 
 const useStyles = makeStyles(theme => ({
     buttonStyle: {
@@ -18,19 +19,19 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        setAuthenticated: status => dispatch(setAuthenticated(status))
     }
 }
 
 function NavbarProfileIcon(props){
     return props.auth.authenticated?(
-        <div></div>
+        <div>Hello, Johnny</div>
     ):(
         <> 
-            <Button color="inherit" variant="text">
+            <Button color="inherit" variant="text" onClick={() => props.setAuthenticated()}>
                 Login
             </Button>
-            <Button color="inherit" variant="outlined">
+            <Button color="inherit" variant="outlined" onClick={() => props.setAuthenticated()}>
                 Sign up
             </Button>
         </>
