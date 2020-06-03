@@ -13,8 +13,9 @@ const devData = [
         "latitude": 100.0,
         "longitude": 100.0,
         "loadFactor": 100.0,
-        "scale": 1.0,
+        "scale": 3.33,
         "property": [],
+        "active": true,
         "storageOptions": [
             "HEATING",
             "AIR_CONDITIONING"
