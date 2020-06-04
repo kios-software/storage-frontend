@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     paper: {
-        marginLeft: theme.spacing(100),
-        marginRight: theme.spacing(100)
+        marginLeft: '30%',
+        marginRight: '30%'
         // display: 'inline'
     }
 }));

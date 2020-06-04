@@ -13,7 +13,7 @@ export default function ProfileImage() {
     return(
         <div >
             <svg height="150" width="150" className={classes.svgBlock} preserveAspectRatio="xMidYMin">
-                <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="3" fill="red"/>
+                <circle cx="75" cy="60" r="40" stroke="black" strokeWidth="2" fill="red"/>
             </svg>
         </div>
     )
