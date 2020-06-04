@@ -7,7 +7,7 @@ export default function Profile({ profile }) {
     )
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
     // const { profile, error } = useSWR('/api/placeholder', fetcher)
     // const fetcher = url => fetch(url).then(r => r.json())
 
@@ -21,20 +21,20 @@ export async function getStaticProps() {
     // };
 
 
-    console.log("Hello, world")
+    // console.log("Hello, world")
     // test data for the profile 
-    return{
-        props: {
-            profile: {
-                "id": 2,
-                "firstName": "Johnny",
-                "lastName": "Edgett",
-                "storage": [],
-                "property": [],
-                "profileType": "USER_PROFILE",
-                "createdAt": "2020-05-26T21:20:17.001",
-                "updatedAt": "2020-05-26T21:20:17.001"
-            }
-        }
-    } 
-  }
+    // return{
+    //     props: {
+    //         profile: {
+    //             "id": 2,
+    //             "firstName": "Johnny",
+    //             "lastName": "Edgett",
+    //             "storage": [],
+    //             "property": [],
+    //             "profileType": "USER_PROFILE",
+    //             "createdAt": "2020-05-26T21:20:17.001",
+    //             "updatedAt": "2020-05-26T21:20:17.001"
+    //         }
+    //     }
+    // } 
+//   }

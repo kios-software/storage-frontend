@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 import { Button, makeStyles, IconButton } from '@material-ui/core'
 import { setAuthenticated } from '../../state/actions/auth-actions'
@@ -34,7 +35,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 function NavbarProfileIcon(props){
-    const classes = useStyles();
+    const classes = useStyles()
+    const router = useRouter()
 
     /* DEBUG */
     /* https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao */
@@ -50,7 +52,7 @@ function NavbarProfileIcon(props){
         <div className={classes.accountDetails}>
             Hello, {props.user.firstName}
             &nbsp; &nbsp; &nbsp; 
-            <IconButton onClick={() => console.log("Not yet implemented")}>
+            <IconButton onClick={() => router.push('/profile')}>
                 <AccountCircleIcon/>
             </IconButton>
         </div>
