@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 import { Button, makeStyles, IconButton } from '@material-ui/core'
@@ -8,6 +8,9 @@ import { bindActionCreators } from 'redux'
 import { getUser, getUserError, getUserPending } from '../../state/reducers/user-reducers'
 import isEmpty from 'lodash.isempty'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Login from '../../login/login'
+import Register from '../../register/register'
+
 const useStyles = makeStyles(theme => ({
     buttonStyle: {
         '& > *': {
@@ -35,6 +38,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 function NavbarProfileIcon(props){
+    const [loginModalOpen, setLoginModalOpen] = useState(false)
+    const [registerModalOpen, setRegisterModalOpen] = useState(false)
+
     const classes = useStyles()
     const router = useRouter()
 
@@ -57,14 +63,16 @@ function NavbarProfileIcon(props){
             </IconButton>
         </div>
     ):(
-        <> 
-            <Button color="inherit" variant="text" onClick={() => props.fetchUser()} className={classes.buttonStyle}>
+        <div>
+            <Login open={loginModalOpen} setLoginModalOpen={setLoginModalOpen}/>
+            <Register open={registerModalOpen} setRegisterModalOpen={setRegisterModalOpen}/>
+            <Button color="inherit" variant="text" onClick={() => setLoginModalOpen(true)} className={classes.buttonStyle}>
                 Login
             </Button>
-            <Button color="inherit" variant="outlined" onClick={() => props.fetchUser()} className={classes.buttonStyle}>
+            <Button color="inherit" variant="outlined" onClick={() => setRegisterModalOpen(true)} className={classes.buttonStyle}>
                 Sign up
             </Button>
-        </>
+        </div>
     )
 }
 

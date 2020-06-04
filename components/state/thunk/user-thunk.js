@@ -3,7 +3,6 @@ import fetch from 'unfetch'
 
 function fetchUser() {
     return dispatch => {
-        console.log("The function has been called")
         dispatch(fetchUserPending())
         fetch('/api/placeholderUser')
         .then(res => res.json())
@@ -19,22 +18,10 @@ function fetchUser() {
             dispatch(fetchUserFailure(error))
         })
     }
+}
 
-    // return dispatch => {
-    //     dispatch(fetchProductsPending());
-    //     fetch('https://exampleapi.com/products')
-    //     .then(res => res.json())
-    //     .then(res => {
-    //         if(res.error) {
-    //             throw(res.error);
-    //         }
-    //         dispatch(fetchProductsSuccess(res.products);
-    //         return res.products;
-    //     })
-    //     .catch(error => {
-    //         dispatch(fetchProductsError(error));
-    //     })
-    // }
+function registerUser() {
+
 }
 
 export default fetchUser
