@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Dialog, TextField, makeStyles, DialogTitle, DialogContent, Typography } from '@material-ui/core'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setAuthenticated } from '../state/actions/auth-actions'
+import fetchUser from '../state/thunk/user-thunk'
 
 const useStyles = makeStyles((theme) => ({ 
     paper: {
@@ -14,6 +18,17 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchUser: fetchUser,
+    setAuthenticated: setAuthenticated
+}, dispatch)
+
 function Login(props) {
     const classes = useStyles();
     const [email, setEmail] = useState('')
@@ -22,6 +37,7 @@ function Login(props) {
 
     const submitLogin = () => {
         // submit login with username and password
+        props.fetchUser()
     }
 
 
@@ -31,7 +47,7 @@ function Login(props) {
         <div align="center">
             <TextField placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={classes.textField}/> <br/>
             <TextField placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className={classes.textField}/> <br/>
-            <Button>Submit</Button>
+            <Button onClick={submitLogin}>Submit</Button>
         </div>
     )
     
@@ -53,4 +69,4 @@ function Login(props) {
     )
 }
 
-export default Login
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

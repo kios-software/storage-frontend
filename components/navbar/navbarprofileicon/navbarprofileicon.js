@@ -49,6 +49,10 @@ function NavbarProfileIcon(props){
     useEffect(() => {
         if(!isEmpty(props.user)){
             props.setAuthenticated(true)
+
+            // If the user is logged in, they shouldn't be able to see the login or register modals
+            setLoginModalOpen(false)
+            setRegisterModalOpen(false)
         }
     }, [props.user, props.error])
     /* DEBUG */
